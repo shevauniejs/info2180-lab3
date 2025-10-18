@@ -15,34 +15,52 @@ document.addEventListener('DOMContentLoaded',function(){
 	
 
 	let clearBoard = function(){
+		let elem = document.getElementById("status");
 		for(box of boxes){
 			drawBoard();
 			box.textContent = "";
+			elem.textContent ="Move your mouse over a square and click to play an X or an O.";
+			elem.classList.remove("you-won");
 			}
 	}
 
-
+/*
 	let sco_chk = function(mk){
-		alert("so_check");
-		let elem = document.getElementById("status");
-		if((boxes[0]===boxes[1] && boxes[1]===boxes[2])||
-			(boxes[3]===boxes[4] && boxes[4]===boxes[5])||
-			(boxes[6]===boxes[7]&& boxes[7]===boxes[8])){
-				elem.textContent = "Congratulations!"+ mk+" is the Winner";
-				elem.classList.add("you-won");	
-		}
-	}
+			let elem = document.getElementById("status");
+				if((boxes[0].textContent===boxes[1].textContent) && (boxes[0].textContent===boxes[2].textContent)){
+					console.log("check done");
+					elem.textContent = "Congratulations!"+ mk+" is the Winner";
+					elem.classList.add("you-won");	
+				}
 
+			
+				if((boxes[3].textContent===boxes[4].textContent) && (boxes[3].textContent===boxes[5].textContent)){
+					console.log("check done");
+					elem.textContent = "Congratulations!"+ mk+" is the Winner";
+					elem.classList.add("you-won");	
+				}
+
+			
+				if((boxes[6].textContent===boxes[7].textContent) && (boxes[6].textContent===boxes[8].textContent)){
+					console.log("check done");
+					elem.textContent = "Congratulations!"+ mk+" is the Winner";
+					elem.classList.add("you-won");	
+				}
+						
+		}
+
+*/
 	let play = function(){
 		restart.addEventListener('click',clearBoard);
 		let currMk ='X';
+		let c = 0;
 		for(box of boxes){
 			box.addEventListener('click', function(event){ 
 			const clickedBx = event.target;
+			c++;
 			if(clickedBx.textContent===""){
 				clickedBx.textContent = currMk;
 				clickedBx.classList.add(currMk);
-				sco_chk(currMk);
 				if(currMk==="X"){
 					currMk = "O";	
 					} else {

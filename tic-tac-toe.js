@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 	let play = function(){
+		restart.addEventListener('click',clearBoard);
 		let currMk ='X';
 		for(box of boxes){
 			box.addEventListener('click', function(event){ 
@@ -42,8 +43,7 @@ document.addEventListener('DOMContentLoaded',function(){
 			drawBoard();
 		}
 	}
-	restart.addEventListener('click',clearBoard);
-
+	
 	let init = function(){
 		alert("game started\n");
 		drawBoard();
